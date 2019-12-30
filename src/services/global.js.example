@@ -1,0 +1,25 @@
+var constData = {
+  	api_url: '',
+  	api_key: '',
+}
+
+if(location.hostname === 'localhost' || location.hostname === 'localhost:8080' || location.hostname === 'localhost:8081' || location.hostname === 'localhost:8082'){
+	
+	// constData.api_url = 'http://localhost/freelancer/bitcoin/crypto_server/public/api/'
+	constData.api_key = 'HWjCkx4sTJ2rEjANoeztVjij6S5ZNOwo21lZzqAeL~+AvJ('
+
+	constData.api_url = 'http://3.1.6.161/public/api/'
+
+} else {
+	constData.api_key = 'HWjCkx4sTJ2rEjANoeztVjij6S5ZNOwo21lZzqAeL~+AvJ('
+
+	constData.api_url = 'http://3.1.6.161/public/api/'
+	
+	// constData.auth_url = 'http://3.1.6.161/ca_api/auth/'
+	// constData.api_url = 'http://3.1.6.161/ca_api/'
+	// constData.api_trans_url = 'http://3.1.6.161/ca_api/transaction/'
+	// constData.upload_file_url = 'http://3.1.6.161/fileupload/'
+	// constData.captcha_url = 'http://3.1.6.161/ca_api/captcha/'
+}
+
+export const globalConstData = constData
