@@ -104,16 +104,16 @@
                 <b-form-group
                   class="mb-3"
                   label-for="password"
-                  :invalid-feedback="invalidFeedback.comfirm_password"
-                  :state="state.comfirm_password"
+                  :invalid-feedback="invalidFeedback.confirm_password"
+                  :state="state.confirm_password"
                 >
                   <b-input-group>
                     <b-input-group-prepend>
                       <b-input-group-text><i class="icon-lock"></i></b-input-group-text>
                     </b-input-group-prepend>
                     <b-form-input
-                      id="comfirm_password"
-                      v-model="form.comfirm_password"
+                      id="confirm_password"
+                      v-model="form.confirm_password"
                       type="password"
                       :placeholder="$ml.get('register_confirm_password')"
                     />
@@ -181,7 +181,7 @@ export default {
         referral_user: '',
         email: '',
         password: '',
-        comfirm_password: '',
+        confirm_password: '',
         captcha: '',
       },
       invalidFeedback: {
@@ -189,7 +189,7 @@ export default {
         referral_user: '',
         email: '',
         password: '',
-        comfirm_password: '',
+        confirm_password: '',
         captcha: '',
       },
       state: {
@@ -197,7 +197,7 @@ export default {
         referral_user: true,
         email: true,
         password: true,
-        comfirm_password: true,
+        confirm_password: true,
         captcha: true,
       },
       captchaImageUrl: '',
@@ -243,14 +243,14 @@ export default {
       this.invalidFeedback.referral_user = ''
       this.invalidFeedback.email = ''
       this.invalidFeedback.password = ''
-      this.invalidFeedback.comfirm_password = ''
+      this.invalidFeedback.confirm_password = ''
       this.invalidFeedback.captcha = ''
 
       this.state.username = true
       this.state.referral_user = true
       this.state.email = true
       this.state.password = true
-      this.state.comfirm_password = true
+      this.state.confirm_password = true
       this.state.captcha = true
     },
     onSubmitR (evt) {
