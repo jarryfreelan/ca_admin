@@ -40,23 +40,12 @@
                   <b-input-group-prepend><b-input-group-text><i class="icon-lock"></i></b-input-group-text></b-input-group-prepend>
                   <b-form-input type="password" class="form-control" v-model="form.password" :placeholder="$ml.get('login_password')" autocomplete="current-password" />
                 </b-input-group>
-                <div v-for="error in errorValidation.captcha" style="padding-bottom: 2px; display: inline-block;">
-                  <a-tag color="#f50" style="align-items-center">{{ error }}</a-tag>
-                </div>
-                <b-input-group class="mb-4">
-                  <b-input-group-prepend><b-input-group-text><i class="fa fa-chain"></i></b-input-group-text></b-input-group-prepend>
-                  <b-form-input type="text" class="form-control" v-model="form.captcha" :placeholder="$ml.get('login_captcha')" autocomplete="captcha" style="margin-right: 10px;" />
-                  <img :src="captchaImageUrl" alt="CAPTCHA" class="captcha-image">
-                  <b-input-group-prepend @click="reloadCaptcha"><b-input-group-text><i class="fa fa-refresh"></i></b-input-group-text></b-input-group-prepend>
-                </b-input-group>
 
                 <b-button type="submit" variant="primary" block squared>{{ $ml.get('login_login') }}</b-button>
               </b-form>
             </b-card-body>
             <b-row class="px-4">
               <b-col cols="6">
-                
-                <b-button variant="link" class="px-0" @click="signUp">{{ $ml.get('login_signUp') }}</b-button>
               </b-col>
               <b-col cols="6" class="text-right">
                 <b-button variant="link" class="px-0">{{ $ml.get('login_forgotPassword') }}</b-button>
@@ -87,13 +76,11 @@ export default {
       form: {
         username: '',
         password: '',
-        captcha: '',
       },
       captchaImageUrl: '',
       errorValidation: {
         username: [],
         password: [],
-        captcha: [],
       },
     }
   },
@@ -103,8 +90,6 @@ export default {
     } else {
       localStorage.setItem('lang', 'en')
     }
-
-    this.reloadCaptcha()
   },
   methods: {
     sessionCheck() {
@@ -112,26 +97,13 @@ export default {
         localStorage.setItem('caSess', this.generateKey(100))
       }
     },
-    reloadCaptcha() {
-      this.sessionCheck()
-      const self = this
-      this.$auth.captcha()
-        .then((response) => {
-          self.captchaImageUrl = response.captcha
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    },
-    signUp: function() {
-      this.$router.push('/register')
-    },
     onSubmit (evt) {
       evt.preventDefault()
       const self = this
       self.errorValidation = []
       this.$auth.login(this.form)
         .then((response) => {
+          window.localStorage.CURRENT_USERNAME = self.form.username
           self.notifice('success', this.$ml.get(response.msg), '')
           self.$router.push('/dashboard');
         })

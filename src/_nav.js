@@ -9,11 +9,16 @@ export default {
       }
     },
     {
-      name: 'PROFILE',
-      url: '/profile',
-      icon: 'icon-user',
+      name: 'ADMIN',
+      url: '/registration',
+      icon: 'icon-people'
     },
     {
+      name: 'NEWS',
+      url: '/news',
+      icon: 'icon-globe',
+    },
+    /*{
       name: 'REGISTRATION',
       url: '/registration',
       icon: 'icon-plus',
@@ -29,7 +34,7 @@ export default {
           icon: 'fa fa-history'
         },
       ]
-    },
+    },*/
     {
       name: 'NETWORK',
       url: '/network',
@@ -74,11 +79,7 @@ export default {
       url: '/withdraw',
       icon: 'fa fa-reply',
     },
-    {
-      name: 'NEWS',
-      url: '/news',
-      icon: 'icon-globe',
-    },
+    
     // {
     //   name: 'DASHBOARD',
     //   url: '/coreuidashboard',

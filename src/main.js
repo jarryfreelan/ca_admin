@@ -18,6 +18,8 @@ import VueTelInput from 'vue-tel-input'
 import AuthService from './services/auth'
 import ApiService from './services/api'
 import DateTimeManagment from './services/datetime'
+import VueTableDynamic from 'vue-table-dynamic'
+import VueQuillEditor from 'vue-quill-editor'
 import './i18n'
 
 Vue.use(BootstrapVue)
@@ -36,6 +38,8 @@ Vue.use(Table)
 Vue.use(Tag)
 Vue.use(Popover)
 Vue.use(Tree)
+Vue.use(VueTableDynamic)
+Vue.use(VueQuillEditor)
 
 Vue.prototype.$message = message
 notification.config({

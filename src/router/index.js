@@ -10,9 +10,10 @@ const Page500 = () => import('@/views/coreui/pages/Page500')
 
 //Crypto Asset
 const mLogin = () => import('@/views/account/Login')
-const mRegister = () => import('@/views/account/Register')
+// const mRegister = () => import('@/views/account/Register')
 const mDashboard = () => import('@/views/dashboard')
 const mNews = () => import('@/views/news')
+const mRegister = () => import('@/views/registration')
 
 Vue.use(Router)
 
@@ -41,6 +42,12 @@ function configRoutes() {
           cname: '资源动态',
           component: mNews
         },
+        {
+          path: 'registration',
+          name: 'Registration',
+          cname: '注册管理员',
+          component: mRegister
+        },
       ]
     },
     {
@@ -56,7 +63,7 @@ function configRoutes() {
           name: 'Login',
           component: mLogin
         },
-        {
+        /*{
           path: 'register',
           name: 'Register',
           component: mRegister
@@ -65,7 +72,7 @@ function configRoutes() {
           path: 'register/:id',
           name: 'Register',
           component: mRegister
-        }
+        }*/
       ]
     },
     { 

@@ -56,11 +56,10 @@ export default {
           }
           axios.defaults.headers.common['capi'] = globalConstData.api_key;
           axios.defaults.headers.common['sess'] = localStorage.getItem('caSess')
-          axios({ url: globalConstData.api_url+'login', data: params, method: 'POST' })
+          axios({ url: globalConstData.api_url+'login639', data: params, method: 'POST' })
             .then((resp) => {
               if (resp.data.status === 'success') {
                 store.commit('auth_success', resp.data.token)
-                store.commit('auth_user', JSON.stringify(resp.data.user))
                 resolve(resp.data)
               } else {
                 reject(resp.data)
